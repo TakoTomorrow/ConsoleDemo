@@ -8,5 +8,10 @@ namespace ConsoleDemo.Service.Interface
 {
     public interface IExampleService
     {
+        /// <summary>
+        /// Demo 工作任務
+        /// </summary>
+        /// <returns></returns>
+        public void DemoTask();
     }
 }

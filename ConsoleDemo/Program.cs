@@ -10,6 +10,7 @@ using NLog;
 using ConsoleDemo.TO;
 using Newtonsoft.Json;
 using System.Text;
+using System.Diagnostics;
 
 // 使用NLog紀錄程式啟動
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
@@ -17,19 +18,10 @@ logger.Trace("Init main");
 
 try
 {
+    IExampleService service = new AsyncTest();
 
-
-    //using var myfile = FileText.CreateDeletingText("DeleteFile.txt");
-
-    //await myfile.WriteLineAsync("abcd");
-
-    //await myfile.WriteLineAsync("1234");
-
-    //myfile.Close();
-
-    var user = new ExampleTO();
-
-    FileJson.CreateJson(user, "myJson.json");
+    // 服務執行
+    service.DemoTask();
 
     Console.Read();
 }
